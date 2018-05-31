@@ -1,0 +1,72 @@
+EP系统（考勤等）https://bpmv2.tclcom.com/bpm/flow/Center/left/Index
+
+wiki:
+http://10.128.161.108/wiki/index.php/
+
+
+共享服务器：
+\\10.128.161.108/Share
+\\10.128.161.108/Share_new
+
+1.       服务器：10.128.161.142   lilin.liu  mobile#3
+
+2.       修改域用户密码：https://mailsz.tct.tcl.com/owa/auth/expiredpassword.aspx\
+
+
+repo版本不对，需要从服务器拷贝正确版本repo再清除之前配置rm -rf ~/.repoconfig/，并清除之前repo下载目录，包括.repo
+
+Linux版teleweb：\\10.128.161.108\share\4_Tools\TctTool\LinuxDownloadTool\CrossPlatDownloadTool
+
+
+vi .repo/mainfest
+
+版本服务器：
+http://10.128.161.131/clid/data/tablet/
+版本路径：
+\\10.128.161.108/Share\1_SW_Delivery\71_A3A84G\
+
+
+Linux版teleweb：\\10.128.161.108\share\4_Tools\TctTool\LinuxDownloadTool\CrossPlatDownloadTool
+
+服务器下版本使用tct_download_code.py
+
+scp示例
+scp -r /data/nishome/tdsw1/ce.yang/.ssh/id_rsa.pub ce.yang@10.128.161.155:/home/ce.yang/.ssh/
+
+scp -r ce.yang@10.128.161.155:/home/ce.yang/work/a3a84g_TMO/out/target/product/a3a84g/*.img /data/nishome/tdsw1/ce.yang/Work/test
+
+版本打包示例：
+./copy_rename_image.sh WWW 0W0 a3a84g 1 CW10 v5.1804.00
+
+     如何判断目前的加密是FDE还是FBE，判定方式如下：
+       通过adb shell获取ro.crypto.state和ro.crypto.type的值
+        FDE：ro.crypto.state = encrypted 和ro.crypto.type = block
+
+        FBE：ro.crypto.state = encrypted 和ro.crypto.type = file
+
+
+如果刷了一个user版本的机器,想修改system的内容,如果刷的版本是带暗码root功能的可以进行以下操作,来push文件.
+依次执行以下步骤:
+1. 暗码root
+2. adb disable-verity
+3. adb reboot
+4. 暗码root
+5. adb remount
+此时机器就可以push文件了.push的文件如果是需要重启才生效的,还要重启机器.
+如果机器重启过,又要push新的文件,就要再次执行4-5步骤.
+
+需要注意的事项,在执行完第三步后,机器就已经被记录被root过了,做fota的同事要注意,此时机器就不能升级了.
+
+可以通过一下属性(persist.su_flag)来查看机器曾经是否被root.查看该属性值,需要root权限:
+
+adb shell getprop | grep persist.su_flag
+
+备注:root暗码:*#*#212018#*#*
+
+
+LoadCustpackFiles
+
+LoadCustpackFiles
+
+
+
