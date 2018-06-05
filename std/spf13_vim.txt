@@ -1,0 +1,67 @@
+vim本地配置请见.vimrc.local
+
+
+2.1 NERDTree
+
+推荐 ： 5颗星
+介绍
+NERDTree 是一个文件浏览器。
+基本操作
+key description
+ctrl+e  打开/关闭文件浏览器
+j   向下移动
+k   向上移动
+o   小写字母o，打开文件或者展开目录
+shift+c 即大写字母C，当前选中目录作为根目录
+u   上一层目录作为根目录
+:help NERDTreeNERDTree帮助手册
+
+2.2 neocomplcache
+
+推荐：5颗星
+介绍 
+neocomplcache 自动补全
+基本操作
+key description
+ctrl+n  当前词补全项，下一个
+ctrl+p  当前词补全项，上一个
+:help NERDTreeNERDTree帮助手册
+
+
+2.3 EasyMotion
+
+推荐 ： 5颗星
+介绍 
+快速行跳转 
+快速字跳转
+基本操作
+key description
+,,w 当前光标后的所有word，提供快捷键跳转
+,,b 当前光标前的所有word，提供快捷键跳转
+,,j 当前光标后的所有行，提供快捷键跳转
+,,k 当前光标后的所有行，提供快捷键跳转
+
+
+2.4 ctags
+
+推荐 ： 5颗星
+介绍 
+最新版ctags可以支持verilog和vhdl。意义相当于一个实用的代码集成开发环境(IDE)。实现各种函数/变量跳转至各自声明处。 
+Exuberant Ctags下载 http://ctags.sourceforge.net/ 
+Exuberant Ctags中文手册 http://easwy.com/blog/archives/exuberant-ctags-chinese-manual/
+基本操作
+key description
+ctrl+]当前光标处word，跳转至相同名称的函数处或者变量声明处
+ctrl+t  跳转的返回
+g]当前光标处word，跳转至相同名称的函数处或者变量声明处，不同与ctrl+]，会列出所有相同名称的标签文件
+
+
+2.5 tagbar
+
+推荐 ： 5颗星
+介绍 
+ctags安装的基础上，spf13-vim安装程序才可以自动下载支持tagbar。
+基本操作
+key description
+,tt 打开当前文件的tag列表
+

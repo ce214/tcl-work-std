@@ -68,5 +68,15 @@ LoadCustpackFiles
 
 LoadCustpackFiles
 
+vim语法高亮无后缀文件
 
+最近在阅读stl源码时候发现，其文件都是无后缀名的，例如map,hash_map,list等，这样一来原来无敌的:sy on就不起作用啦。
+
+解决办法很简单，一记组合拳即可，
+
+:filetype on
+
+:set filetype=c
+
+:sy on
 
