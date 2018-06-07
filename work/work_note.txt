@@ -80,3 +80,6 @@ vim语法高亮无后缀文件
 
 :sy on
 
+
+QCOM下载时
+adb reboot edl
