@@ -1,0 +1,35 @@
+[FAQ05169] [Storage]如何从手机上readback任意分区的image回来？
+
+[Description]
+如何利用flash tool从手机上读回任意一个image？
+
+ [Solution]
+ 以读回userdata分区为例来说明详细的步骤：
+
+  1. 查看MT65XX_Android_scatter_emmc.txt中USRDATA  和其下一个Partition的StartAddress, 如URSDATA =0x425e4000，FAT=0x626e4000
+
+  2. 计算出Userdata 的Size =0x626e4000-0x425e4000 = 0x20100000
+   note:此方法不适用于最后一个有效分区。例：FAT分区或者当没有FAT分区时的userdata分区。最后一个分区size可参考cat /proc/dumchar_inof的值。
+  3. 使用flash tool 中的Read back 功能添加一个读取image项，并双击设置Start Address 和 Length .其中start address写入 0x425e4000，length写入 0x20100000。
+
+  4. 单击 Read back ，并连接手机读取data数据。
+
+  5. 如Image 读出来之后为EXT4 的image 格式，请参考《FAQ04247 如何解压编译生成的system/data等带ext4文件系统的image 》来对其进行分析。
+
+
+
+[FAQ04247] [Storage]如何解压编译生成的system/data等带ext4文件系统的image
+
+在ubuntu系统下：
+  1. cd alps/out/host/linux-x86/bin/
+ 
+  2. ./simg2img <source_path>/data.img <target_path>/data_ext4.img
+  
+  3. 生成的data_ext4.img 即被解压出来的带有ext4 文件系统的image文件。
+   
+   4. 使用mount 命令把ext4 image挂载到某目录(temp_dir )
+   sudo mount  -t ext4 <target_path>/data_ext4.img ~/<temp_dir>
+   5. 这样就可以直接查看/修改文件系统内的类容。
+  
+  注意 
+   如果调用./simg2img出现了错误，就将前面三个步骤省略，直接采用第四个步骤，将得到的回读img通过mout命令挂载。
