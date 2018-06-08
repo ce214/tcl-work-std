@@ -83,3 +83,29 @@ vim语法高亮无后缀文件
 
 QCOM下载时
 adb reboot edl
+
+
+高通log工具抓取log后,存储在sdcard/Bugreport/下
+
+高通项目指令
+Engineer mode*#*#3646633#*#*
+Checking SW version code*#3228#
+Checking HW version code*#837837#
+TCT Feedback*#*#0574#*#*
+Get battery info*#*#4636#*#*
+Checking parameter info （open modem port）*#*#4636#*#*
+Check E-label*#07#
+Disable Google Apk###666#
+Boot emegency alert settings*#2627#
+Open/Close the diagnotics###2324#
+
+
+
+
+https://www.cnblogs.com/tiger-wang-ms/p/6491429.html
+https://blog.csdn.net/Gaugamela/article/details/54176460
+
+https://blog.csdn.net/linuxweiyh/article/details/51933848
+https://blog.csdn.net/lqxandroid2012/article/details/54972130
+
+persist. and ro.
