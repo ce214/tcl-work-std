@@ -65,3 +65,16 @@ ctags安装的基础上，spf13-vim安装程序才可以自动下载支持tagbar
 key description
 ,tt 打开当前文件的tag列表
 
+
+2.6 MiniBufExplorer现在是vim默认安装的插件了吧。
+
+记住几个常用的命令（从SO上学来的）：
+
+ :ctrl+o 打开之前打开过的文件
+ :e <filename> 打开文件
+ :ls    当前打开的buf
+ :bn    下一个buf
+ :bp    前一个buf
+ :b<n>    n是数字，第n个buf
+ :b<tab>    自动补齐
+ :bd    删除buf
