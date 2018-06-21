@@ -99,6 +99,29 @@ Disable Google Apk###666#
 Boot emegency alert settings*#2627#
 Open/Close the diagnotics###2324#
 
+查找当前应用路径
+adb shell dumpsys activity top
+adb shell pm path com.tct.tablet.launcher
+
+mtklog
+adb shell am start -n com.mediatek.mtklogger/com.mediatek.mtklogger.MainActivity
+
+
+
+
+adb shell am force-stop package_name   只能关闭当前应用
+adb shell pm clear package_name        彻底清除该应用(可以关闭后台应用)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -108,4 +131,4 @@ https://blog.csdn.net/Gaugamela/article/details/54176460
 https://blog.csdn.net/linuxweiyh/article/details/51933848
 https://blog.csdn.net/lqxandroid2012/article/details/54972130
 
-persist. and ro.
+
