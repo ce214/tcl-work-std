@@ -1,0 +1,59 @@
+GCS fotatool地址
+git clone git@10.128.161.91:/jrd/JrdDiffTool.git
+
+
+tablet fotatool
+
+git clone git@10.128.161.91:tablet_tools/fota_tools.git
+
+
+
+
+1:
+将difftool和申请表上传到ftp 10.129.91.36
+
+然后填写ITSM申请 应用系统权限申报
+示例如下:
+
+服务项目 * :	GOTU
+标题* :	部署A3A84GTMO difftool
+详细描述* :	请新建 A3A84GTMO 项目并部署difftool, 请给zhi.li.sz 和 ce.yang 
+帐号添加相应权限。
+         difftool和申请表我已经打包上传：
+         10.129.91.36
+/data/www/import/fotatools_a3a84g_TMO.tar.gz  
+
+/data/www/import/Project_application_template_A3A84GTMO-V1.0.xls
+
+然后把上述描述发一封邮件到mingming.wan@tcl.com,请他帮忙部署difftool
+
+部署好后,登陆GOTU网站,上传需要验证fota的两个版本.
+
+部署后,如果在GOTU网站上不能看到download文件夹,需要找shuzhong.cui.hz@tcl.com帮忙同步一下.
+
+
+2:
+
+http://gotu2admin.tcl-ta.com:8081/product_classes/index
+
+MainData-->product class-->create
+注意CU Reference 不能用下划线
+
+
+
+Fota apk help check for update 连续点击会弹出窗口输入当前日期,就会有advanced mode,
+apk中 Device Version值的逻辑如下：
+优先获取ro.def.ota.ver的值，如果ro.def.ota.ver为空才会去按位取 ro.tct.sys.ver的值。
+
+
+
+
+
+
+
+U50APLUSTMO
+
+	请新建 U50APLUSTMO 项目并部署difftool, 请给zhi.li.sz 和 ce.yang 帐号添加相应权限。
+
+difftool和申请表我已经打包上传：
+         10.129.91.36/data/www/import/U50AP_TMO_0628

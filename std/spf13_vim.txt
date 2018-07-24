@@ -78,3 +78,10 @@ key description
  :b<n>    n是数字，第n个buf
  :b<tab>    自动补齐
  :bd    删除buf
+
+
+
+
+如vim不能识别文件类型,可强制指定类型set filetype=xxxx
+
+
