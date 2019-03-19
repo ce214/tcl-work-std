@@ -1,9 +1,5 @@
 EP系统（考勤等）https://bpmv2.tclcom.com/bpm/flow/Center/left/Index
 
-https://kiwivm.64clouds.com/main-exec.php?mode=blacklistcheck
-https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks
-http://port.ping.pe
-
 wiki:
 http://10.128.161.108/wiki/index.php/
 
@@ -127,37 +123,6 @@ adb shell pm clear package_name        彻底清除该应用(可以关闭后台�
 
 
 
-      TaskRecord{2ab796b #36 A=com.tencent.mm U=0 StackId=1 sz=1}
-        Run #0: ActivityRecord{a8fa675 u0 com.tencent.mm/.ui.LauncherUI t36}
-    Proc # 8: fore  B/ /SVC  trm: 5 13279:com.tencent.mm:tools/u0a140 (exec-service)
-    Proc # 7: fore  B/ /RCVR trm: 5 13288:com.tencent.mm:appbrand1/u0a140 (broadcast)
-    Proc # 2: cch   B/ /CAC  trm:80 12830:com.tencent.mm/u0a140 (cch-act)
-    Proc # 4: cch   B/ /CACC trm:80 12928:com.tencent.mm:push/u0a140 (cch-client-act)
-        com.tencent.mm/.booter.CoreService<=Proc{12830:com.tencent.mm/u0a140}
-    Proc # 9: cch   B/ /CEM  trm:80 13175:com.tencent.mm:appbrand0/u0a140 (cch-empty)
-
-
-      TaskRecord{9163ab6 #44 A=com.tencent.mm U=0 StackId=1 sz=1}
-        Run #3: ActivityRecord{6aefab1 u0 com.tencent.mm/.ui.LauncherUI t44}
-    Proc # 5: vis   F/ /IMPF trm: 0 3639:com.tencent.mm:push/u0a63 (service)
-        com.tencent.mm/.booter.CoreService<=Proc{2146:com.tencent.mm/u0a63}
-    Proc # 1: vis   F/ /IMPF trm: 0 2146:com.tencent.mm/u0a63 (service)
-        com.tencent.mm/.plugin.appbrand.jsapi.nfc.hce.HCEService<=Proc{1745:com.android.nfc/1027}
-    Proc # 7: prev  B/ /LAST trm: 0 23005:com.tencent.mm:sandbox/u0a63 (service)
-        com.tencent.mm/.service.ProcessService$SandBoxProcessService<=Proc{22816:com.tencent.mm:tools/u0a63}
-    Proc # 2: prev  B/ /LAST trm: 0 22816:com.tencent.mm:tools/u0a63 (recent-provider)
-    Proc # 8: cch   B/ /CEM  trm: 0 23167:com.tencent.mm:appbrand1/u0a63 (cch-empty)
-    Proc # 9: cch+2 B/ /CEM  trm: 0 22875:com.tencent.mm:appbrand0/u0a63 (cch-empty)
-  mPreviousProcess: ProcessRecord{39add48 2146:com.tencent.mm/u0a63}
-
-    Proc # 5: vis   F/ /IMPF trm: 0 3639:com.tencent.mm:push/u0a63 (service)
-        com.tencent.mm/.booter.CoreService<=Proc{2146:com.tencent.mm/u0a63}
-    Proc # 1: vis   F/ /IMPF trm: 0 2146:com.tencent.mm/u0a63 (service)
-        com.tencent.mm/.plugin.appbrand.jsapi.nfc.hce.HCEService<=Proc{1745:com.android.nfc/1027}
-    Proc # 2: cch   B/ /CACC trm: 0 22816:com.tencent.mm:tools/u0a63 (cch-client-act)
-    Proc # 9: cch   B/ /CEM  trm: 0 22875:com.tencent.mm:appbrand0/u0a63 (cch-empty)
-    Proc # 8: cch   B/ /CEM  trm: 0 23167:com.tencent.mm:appbrand1/u0a63 (cch-empty)
-    Proc # 7: cch   B/ /CEM  trm: 0 23005:com.tencent.mm:sandbox/u0a63 (service)
 
 
 

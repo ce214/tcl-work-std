@@ -1,5 +1,58 @@
+ <vrm>
+         <DeltaType>update</DeltaType>
+         <ComponentDeltaFileName>OUTPUT/fs_s2t.delta</ComponentDeltaFileName>
+         <RamSize>0x8000000</RamSize>
+         <CaseSensitive>1</CaseSensitive>
+         <!--<MakeFOTADP>1</MakeFOTADP> -->
+         <NumberOfPartitions>1</NumberOfPartitions>
+   <CPUArchitecture>thumb</CPUArchitecture> <!-- default -->
+   <LittleEndian>1</LittleEndian> <!-- default -->
+   <NumBackupSectors>4</NumBackupSectors> <!-- 1M for less I/O operation, more? -->
+   <SectorSize>0x80000</SectorSize> <!-- 64K, more? -->
+   <AllowMissingFSAttributes>0</AllowMissingFSAttributes> <!-- default -->
+   <DefaultToStandard>1</DefaultToStandard>
+         <partition>
+                 <PartitionName>FS</PartitionName>
+                 <FileSystem>JRN_RWFS</FileSystem>
+                 <PartitionType>PT_FS</PartitionType>
+                 <MountPoint>/</MountPoint>
+                 <CompressionControl>CFG/compression.xml</CompressionControl>
+                 <SourceVersion>INPUT/SOURCE/SOURCE/fs</SourceVersion>
+                 <SourceAttributesFile>INPUT/SOURCE/SOURCE/fs_attr.txt</SourceAttributesFile>
+                 <TargetVersion>INPUT/TARGET/TARGET/fs</TargetVersion>
+                 <TargetAttributesFile>INPUT/TARGET/TARGET/fs_attr.txt</TargetAttributesFile>
+                 <AutoMatchLevel>4</AutoMatchLevel> <!-- default -->
+         </partition>
+ </vrm>
+SectorSize
+Device flash size
+For file system (PT_FS) Deltas, NumBackupSectors x
+SectorSize = the size of a temporary file used for
+storage
+
 GCS fotatool地址
 git clone git@10.128.161.91:/jrd/JrdDiffTool.git
+
+redbend_fota签名服务器
+10.128.161.135
+
+android
+Gcs@123
+
+url = git@10.128.161.91:/tablet_tools/redbend_fota.git
+[branch "u50aplusvzw"]
+
+
+U50AVZW redbend_fota更新服务器difftool
+ git add xxx
+git commit -m “aaa”
+git push origin u50aplusvzw:u50aplusvzw
+
+
+rbfota生成差分包指令：
+./prepare.sh -a
+
+./generate.sh -a -s release
 
 
 tablet fotatool
@@ -7,14 +60,24 @@ tablet fotatool
 git clone git@10.128.161.91:tablet_tools/fota_tools.git
 
 
+打印recovery 串口log
+在recovery.te加
+allow recovery console_device:chr_file {open read write append getattr ioctl};
+allow recovery console_device:file {open read write };
 
+在recovery.cpp修改如下
+//redirect_stdio(TEMPORARY_LOG_FILE);
+
+redirect_stdio("/dev/console"); //ZHI.LI.SZ
+
+ln -s /run/user/1198/gvfs/sftp:host=10.128.161.155 /data/nishome/tdsw1/ce.yang/155srv
 
 1:
 将difftool和申请表上传到ftp 10.129.91.36
 
 然后填写ITSM申请 应用系统权限申报
 示例如下:
-
+d
 服务项目 * :	GOTU
 标题* :	部署A3A84GTMO difftool
 详细描述* :	请新建 A3A84GTMO 项目并部署difftool, 请给zhi.li.sz 和 ce.yang 
@@ -47,6 +110,20 @@ apk中 Device Version值的逻辑如下：
 
 
 
+开机时mount fotadata分区
+diff --git a/etc/init.rc b/etc/init.rc
+index d8121cc..6f691c0 100644
+--- a/etc/init.rc
++++ b/etc/init.rc
+@@ -43,6 +43,10 @@ on fs
+     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+ 
++    #add by zhi.li.sz(zhi.li.sz@tcl.com),11/07/2018, mount fotadata partition, TASK-7102499,
++    wait /dev/block/platform/bootdevice/by-name/fotadata
++    mount ext4 /dev/block/bootdevice/by-name/fotadata /fotadata rw barrier=1
++
+ on boot
 
 
 
